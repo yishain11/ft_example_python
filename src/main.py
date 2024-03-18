@@ -9,6 +9,12 @@ if len(sys.argv)>1:
         case 'write':
             msg = input("what is your msg? ")
             if msg:
-                fns.write_to_json(msg)
+                err_writing = True
+                while err_writing == True: 
+                    try:
+                        fns.write_to_json(msg)
+                        err_writing = False
+                    except Exception as e :
+                        err_writing = True
 else:
     print("no operator")
